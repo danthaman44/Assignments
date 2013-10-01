@@ -2,14 +2,22 @@
 
 ;;; Return the sum of all numbers up to and including n for 0 <= n.
 (define (sum-to-n n)
+<<<<<<< HEAD
   (if (zero? n)
       0
       (+ n (sum-to-n (- n 1)))))
 
+=======
+  (cond
+   ((zero? n) 0)
+   (else
+    (+ n (sum-to-n (- n 1))))))
+>>>>>>> 778a4fa6f29a0a16c030e6224c82535bed5e8d9c
 
 ;;; Calculate n choose r, for 0 <= n, 0 <= r <= n
 (define (combination n r)
   (cond
+<<<<<<< HEAD
     ((zero? r) 1)
     ((= n r) 1)
     (else
@@ -22,20 +30,43 @@
     ((= 1 n) 1)
     (else
       (+ (fib (- n 1)) (fib (- n 2))))))
+=======
+   ((zero? r) 1)
+   ((= n r) 1)
+   (else
+    (+ (combination (- n 1) (- r 1))
+       (combination (- n 1) r)))))
+>>>>>>> 778a4fa6f29a0a16c030e6224c82535bed5e8d9c
 
 ;;; Return the sum of all numbers in a list
-(define (sum lst) null)
+(define (sum lst)
+  (cond
+   ((null? lst) 0)
+   (else
+    (+ (car lst) (sum (cdr lst))))))
 
 ;;; Return whether element a is contained in list lst
 (define (member? a lst)
   (cond
+<<<<<<< HEAD
     ((null? lst) #f)
     ((equal? a (car lst)) #t)
     (else
       (member? a (cdr lst)))))
+=======
+   ((null? lst) #f)
+   ((equal? a (car lst)) #t)
+   (else
+    (member? a (cdr lst)))))
+>>>>>>> 778a4fa6f29a0a16c030e6224c82535bed5e8d9c
 
 ;;; Return a list with the *first* instance of element a removed if present
-(define (rember lst a) null)
+(define (rember lst a)
+  (cond
+   ((null? lst) '())
+   ((equal? a (car lst)) (cdr lst))
+   (else
+    (cons (car lst) (rember (cdr lst) a)))))
 
 ;;; Return whether element a is contained in any level of S-expression lst
 (define (member?* a lst)
