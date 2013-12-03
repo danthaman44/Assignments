@@ -7,12 +7,10 @@
       0
       (+ n (sum-to-n (- n 1)))))
 
-=======
   (cond
    ((zero? n) 0)
    (else
-    (+ n (sum-to-n (- n 1))))))
->>>>>>> 778a4fa6f29a0a16c030e6224c82535bed5e8d9c
+    (+ n (sum-to-n (- n 1)))))
 
 ;;; Calculate n choose r, for 0 <= n, 0 <= r <= n
 (define (combination n r)
