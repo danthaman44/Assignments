@@ -1,13 +1,25 @@
 #lang racket
 
 ;; The nth element of the Fibonacci sequence. 0, 1, 1, 2, 3, 5...
-(define (fibonacci n) nil)
+(define (fibonacci number)
+  (define (fibo-rec number n i)
+    (if (<= number 0)
+        i   
+        (fibo-rec (- number 1) (+ n i) n)))
+  (fibo-rec number 1 0))
 
 ;; Quick sort
-(define (qsort lst) nil)
+(define (qsort l)
+  (cond
+   [(empty? l) empty]
+   [else (append (quick-sort (smaller-than (first l) (rest l)))
+                 (list (first l))
+                 (quick-sort (larger-than (first l) (rest l))))]))
 
-;; Reverse the list
-(define (reverse lst) nil)
+(define (smaller-than x l)
+  (filter (lambda (y) (< y x)) l))
+(define (larger-than x l)
+  (filter (lambda (y) (>= y x)) l))
 
 ;; Check if n is prime
 (define (prime? n) nil)
