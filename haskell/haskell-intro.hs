@@ -1,3 +1,5 @@
+module HaskellIntro where
+
 -- Problem 1: Write myZip which zips two lists
 myZip lst1 lst2 = [(lst1 !! i, lst2 !! i) | i < min (length lst1) (length lst2) ]
 
