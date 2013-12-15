@@ -23,7 +23,7 @@ end
 # Longest Collatz sequence
 #
 def euler14(n)
-  cache = {1: 1}
+  cache = 1
   2.upto(n) do |i|
     collatz(n, cache)
   end
@@ -46,7 +46,6 @@ def collatz(n, cache)
     counter++
   end
   counter
-end
 
 end
 
@@ -75,7 +74,39 @@ def rot13(string)
 end
 
 def query_classes(data, criteria)
-
+  data.each do |d|
+    puts d
+  end
 end
 
-p sort([3, 5, -1, 8, -2])
+data = [{
+  :department => 'CS',
+  :number => 101,
+  :name => 'Intro to Computer Science',
+  :credits => 1.00
+}, {
+  :department => 'CS',
+  :number => 82,
+  :name => 'The Internet Seminar',
+  :credits => 0.5
+}, {
+  :department => 'ECE',
+  :number => 52,
+  :name => 'Intro to Digital Logic'
+  # Note that the :credits key-value pair is missing
+}]
+
+criteria = {
+  :filter => {
+    :number => {
+      :gt => 80
+    },
+    :credits => {
+      :gte => 0.5
+    }
+  },
+  :select => [:number, :name],
+  :sort_by => :number
+}
+
+p queryClasses(data, critera)
